@@ -3,22 +3,21 @@ import { motion } from 'framer-motion';
 
 const skills = {
   "Machine Learning": [
-    { name: "TensorFlow", level: 90 },
-    { name: "PyTorch", level: 85 },
-    { name: "Scikit-learn", level: 95 },
-    { name: "Neural Networks", level: 88 },
+    { name: "TensorFlow", level: 70 },
+    { name: "PyTorch", level: 80 },
+    { name: "Scikit-learn", level: 70 },
+    { name: "Neural Networks", level: 80 },
   ],
   "Data Science": [
-    { name: "Python", level: 95 },
-    { name: "Pandas", level: 92 },
-    { name: "NumPy", level: 90 },
-    { name: "Data Visualization", level: 88 },
+    { name: "Python", level: 80 },
+    { name: "Pandas", level: 80 },
+    { name: "NumPy", level: 80 },
+    { name: "Data Visualization", level: 55 },
   ],
   "Development": [
-    { name: "React", level: 85 },
-    { name: "Node.js", level: 80 },
-    { name: "Flask", level: 85 },
-    { name: "SQL", level: 88 },
+    { name: "React", level: 65 },
+    { name: "Flask", level: 70 },
+    { name: "SQL", level: 70 },
   ]
 };
 

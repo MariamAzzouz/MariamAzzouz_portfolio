@@ -20,11 +20,11 @@ function ProgressBar({
   };
 
   const variants = {
-    default: 'bg-lime-400',
+    default: 'bg-blue-400',
     success: 'bg-green-500',
     warning: 'bg-yellow-500',
     error: 'bg-red-500',
-    gradient: 'bg-gradient-to-r from-lime-400 to-emerald-400'
+    gradient: 'bg-gradient-to-r from-blue-400 to-emerald-400'
   };
 
   return (

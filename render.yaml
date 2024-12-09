@@ -1,0 +1,16 @@
+services:
+  # Backend API
+  - type: web
+    name: portfolio-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+  # Frontend Static Site
+  - type: static
+    name: portfolio-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    publishDir: frontend/build 

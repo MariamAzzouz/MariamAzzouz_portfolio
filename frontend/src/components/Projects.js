@@ -3,11 +3,19 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: "Project 1",
-    description: "Description of your first project",
-    image: "/project1.jpg", // Add your image to the public folder
-    technologies: ["React", "Node.js", "MongoDB"],
-    githubLink: "https://github.com/yourusername/project1",
+    title: "3D Customized Avatar Generator",
+    description: "This project leverages a Conditional Generative Adversarial Network (cGAN) to generate personalized 3D avatars from 15 body measurements, ensuring high accuracy and detail through advanced AI techniques like Chamfer Distance loss for precise point cloud generation. The system transforms point clouds into meshes for real-time visualization and customization, allowing users to personalize avatars with clothing and features in an interactive 3D interface. It combines AI-driven avatar generation with a robust full-stack web application for a seamless user experience",
+    image: "demo avatar.png", // Add your image to the public folder
+    technologies: ["CGAN", "Python", "HTML","CSS","JavaScript","Flask","Three.js"],
+    githubLink: "https://github.com/MariamAzzouz/3D_Avatar_generation",
+    liveLink: "https://project1.com"
+  },
+  {
+    title: "Movie Recommendation System",
+    description: "The Movie Recommender System is a hybrid recommendation platform combining collaborative filtering (based on user preferences) and content-based filtering (analyzing movie metadata using TF-IDF and cosine similarity) to deliver personalized movie suggestions. It integrates Flask for backend logic, SQLite for data storage, and React for a dynamic UI. With features like user authentication, movie search, ratings, and TMDB API integration for rich media content, the system ensures an engaging and tailored user experience.",
+    image: "movie demo.png", // Add your image to the public folder
+    technologies: ["Flask","React","SQLite","TF-IDF Vectorizer","TMDB API"],
+    githubLink: "https://github.com/MariamAzzouz/Movies_recommendation_system",
     liveLink: "https://project1.com"
   },
   // Add more projects here
@@ -25,9 +33,9 @@ const cardVariants = {
 
 function Projects() {
   return (
-    <section className="section-padding bg-gray-50 dark:bg-gray-800">
+    <section className="section-padding bg-white dark:bg-gray-700">
       <div className="max-w-7xl mx-auto container-padding">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-700 dark:text-gray-200">
           My Projects
         </h2>
         
@@ -48,17 +56,17 @@ function Projects() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                <h3 className="text-xl font-bold mb-2 text-gray-100 dark:text-gray-100">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-gray-300 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm"
+                      className="px-3 py-1 bg-blue-200 dark:bg-blue-800 text-blue-700 dark:text-blue-200 rounded-full text-sm"
                     >
                       {tech}
                     </span>
@@ -69,7 +77,7 @@ function Projects() {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400"
+                    className="text-blue-500 hover:text-blue-700 dark:text-blue-300"
                   >
                     GitHub
                   </a>
@@ -77,7 +85,7 @@ function Projects() {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400"
+                    className="text-blue-500 hover:text-blue-700 dark:text-blue-300"
                   >
                     Live Demo
                   </a>

@@ -1,12 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const variants = {
-  hover: { scale: 1.05 },
-  tap: { scale: 0.95 },
-  initial: { scale: 1 }
-};
-
 function Button({ 
   children, 
   variant = 'primary', 
@@ -14,6 +8,7 @@ function Button({
   className = '', 
   isLoading = false,
   disabled = false,
+  onClick,
   ...props 
 }) {
   const baseStyles = "font-semibold rounded-lg transition-all duration-200 flex items-center justify-center";
@@ -45,6 +40,7 @@ function Button({
         ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
         ${className}
       `}
+      onClick={onClick}
       {...props}
     >
       {isLoading ? (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Button from '../components/ui/Button';
 
 function Home() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -58,33 +59,34 @@ function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-            >
+            > 
+              
               <Link to="/projects">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-lime-400 text-gray-900 rounded-full font-semibold hover:bg-lime-300 transition-all"
+                <Button
+                  variant="primary"
+                  size="md"
                   onClick={() => console.log('View Projects button clicked')}
                 >
                   View Projects
-                </motion.button>
+                </Button>
               </Link>
               
               <a
                 href={`${apiUrl}/download_cv`}
                 onClick={(e) => {
                   console.log('Download button clicked');
+                  e.preventDefault();
                 }}
                 download
               >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-2 border-lime-400 text-lime-400 rounded-full font-semibold hover:bg-lime-400/10 transition-all"
+                <Button
+                  variant="outline"
+                  size="md"
                 >
                   Download CV
-                </motion.button>
+                </Button>
               </a>
+
             </motion.div>
           </motion.div>
 

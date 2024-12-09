@@ -10,5 +10,11 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15"
+  },
+  "homepage": "https://MariamAzzouz.github.io/MariamAzzouz_portfolio",
+  "scripts": {
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "dev": "nodemon server.js"
   }
 }

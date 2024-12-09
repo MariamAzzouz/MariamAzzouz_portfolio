@@ -47,8 +47,8 @@ function About() {
               <div>
                 <h3 className="text-lime-400 font-bold mb-2">Experience</h3>
                 <ul className="text-gray-300 space-y-2">
-                  <li>2 Years in ML/AI including 1 years through interships as professional experience and 1 year through academic projects</li>
-                  <li>5+ Major Projects</li>
+                  <li>1 Year in ML/AI through interships and academic projects</li>
+                  <li>3+ Major Projects</li>
                 </ul>
               </div>
             </motion.div>
