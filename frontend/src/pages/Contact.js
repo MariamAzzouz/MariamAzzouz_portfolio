@@ -7,6 +7,8 @@ function Contact() {
     email: '',
     message: ''
   });
+  const [status, setStatus] = useState('');
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const socialLinks = [
     {
@@ -27,21 +29,35 @@ function Contact() {
         </svg>
       )
     },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/your-handle',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-        </svg>
-      )
-    }
+    
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log(formData);
+    setStatus('sending');
+    
+    try {
+      const response = await fetch(`${apiUrl}/send-message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      } else {
+        setStatus('error');
+        console.error('Error:', data.error);
+      }
+    } catch (error) {
+      setStatus('error');
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -73,33 +89,46 @@ function Contact() {
                 <label className="block text-gray-300 mb-2">Name</label>
                 <input
                   type="text"
+                  value={formData.name}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-lime-400 text-white"
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
                 />
               </div>
               <div>
                 <label className="block text-gray-300 mb-2">Email</label>
                 <input
                   type="email"
+                  value={formData.email}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-lime-400 text-white"
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required
                 />
               </div>
               <div>
                 <label className="block text-gray-300 mb-2">Message</label>
                 <textarea
                   rows="4"
+                  value={formData.message}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-lime-400 text-white"
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  required
                 ></textarea>
               </div>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full px-8 py-3 bg-lime-400 text-gray-900 rounded-lg font-semibold hover:bg-lime-300 transition-all"
+                disabled={status === 'sending'}
               >
-                Send Message
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </motion.button>
+              {status === 'success' && (
+                <p className="text-green-400">Message sent successfully!</p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-400">Failed to send message. Please try again.</p>
+              )}
             </form>
           </motion.div>
 
