@@ -73,11 +73,8 @@ function Home() {
               
               <a
                 href={`${apiUrl}/download_cv`}
-                onClick={(e) => {
-                  console.log('Download button clicked');
-                  e.preventDefault();
-                }}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Button
                   variant="outline"
