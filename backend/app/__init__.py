@@ -6,6 +6,7 @@ def create_app():
     app = Flask(__name__)
     CORS(app, origins=['https://mariamazzouz.netlify.app'])
 
+
     # Register routes
     register_routes(app)  # Pass the app instance to the register function
 

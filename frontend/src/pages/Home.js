@@ -71,18 +71,40 @@ function Home() {
                 </Button>
               </Link>
               
-              <a
-                href={`${apiUrl}/download_cv`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button
+                variant="outline"
+                size="md"
+                onClick={() => {
+                  console.log("Button clicked");
+                  console.log("Attempting to download from:", `${apiUrl}/download_cv`);
+                  try {
+                    fetch(`${apiUrl}/download_cv`)
+                      .then(response => {
+                        console.log("Response:", response);
+                        if (!response.ok) {
+                          throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.blob();
+                      })
+                      .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = "Mariem_AZZOUZ_CV.pdf";
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                      })
+                      .catch(error => {
+                        console.error("Download error:", error);
+                      });
+                  } catch (error) {
+                    console.error("Fetch error:", error);
+                  }
+                }}
               >
-                <Button
-                  variant="outline"
-                  size="md"
-                >
-                  Download CV
-                </Button>
-              </a>
+                Download CV
+              </Button>
 
             </motion.div>
           </motion.div>
