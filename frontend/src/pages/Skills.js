@@ -4,20 +4,20 @@ import { motion } from 'framer-motion';
 const skills = {
   "Machine Learning": [
     { name: "TensorFlow", level: 70 },
-    { name: "PyTorch", level: 80 },
+    { name: "PyTorch", level: 75 },
     { name: "Scikit-learn", level: 70 },
-    { name: "Neural Networks", level: 80 },
+    { name: "Neural Networks", level: 75 },
   ],
   "Data Science": [
-    { name: "Python", level: 80 },
-    { name: "Pandas", level: 80 },
-    { name: "NumPy", level: 80 },
+    { name: "Python", level: 75 },
+    { name: "Pandas", level: 72 },
+    { name: "NumPy", level: 72 },
     { name: "Data Visualization", level: 55 },
   ],
   "Development": [
-    { name: "React", level: 65 },
-    { name: "Flask", level: 70 },
-    { name: "SQL", level: 70 },
+    { name: "React", level: 50 },
+    { name: "Flask", level: 65 },
+    { name: "SQL", level: 68 },
   ]
 };
 

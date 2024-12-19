@@ -8,7 +8,7 @@ const projects = [
     image: "demo avatar.png", // Add your image to the public folder
     technologies: ["CGAN", "Python", "HTML","CSS","JavaScript","Flask","Three.js"],
     githubLink: "https://github.com/MariamAzzouz/3D_Avatar_generation",
-    liveLink: "https://project1.com"
+    liveLink: "https://drive.google.com/file/d/1EY8mPtBe7fOTJZcE7nMSHl-DYxHX60Ia/view?t=23"
   },
   {
     title: "Movie Recommendation System",
@@ -16,7 +16,7 @@ const projects = [
     image: "movie demo.png", // Add your image to the public folder
     technologies: ["Flask","React","SQLite","TF-IDF Vectorizer","TMDB API"],
     githubLink: "https://github.com/MariamAzzouz/Movies_recommendation_system",
-    liveLink: "https://project1.com"
+    //liveLink: ""
   },
   // Add more projects here
 ];

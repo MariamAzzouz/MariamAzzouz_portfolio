@@ -27,9 +27,8 @@ function About() {
               className="text-gray-300 mb-6"
             >
               I'm a passionate AI & Data Scientist with expertise in machine learning,
-              deep learning, and data analysis. With a strong background in both theoretical
-              and practical aspects of AI, I help organizations leverage data-driven
-              insights to solve complex problems.
+              deep learning, and data analysis, With a strong background in both theoretical
+              and practical aspects of AI.
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
