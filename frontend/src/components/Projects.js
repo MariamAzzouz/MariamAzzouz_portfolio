@@ -18,6 +18,22 @@ const projects = [
     githubLink: "https://github.com/MariamAzzouz/Movies_recommendation_system",
     //liveLink: ""
   },
+  {
+    title: "Image deblurring System",
+    description: "This project develops an image deblurring solution using a custom U-Net with residual blocks and perceptual loss, trained on the GoPro dataset. It employs advanced preprocessing, data augmentation, and a combined loss function for high-quality restoration.",
+    image: "demo_deb.PNG", // Add your image to the public folder
+    technologies: ["Python","TensorFlow","U-Net","Perceptual Loss","GoPro Dataset"],
+    githubLink: "https://github.com/MariamAzzouz/image_debluring",
+    //liveLink: ""
+  },
+  {
+    title: "Text Summarization System",
+    description: "This project is an automated text summarization system using the facebook/bart-large-cnn model, fine-tuned on the cnn_dailymail dataset. It generates concise summaries from text or PDFs, enabling efficient document review.",
+    //image: "demo_deb.PNG", // Add your image to the public folder
+    technologies: ["Python","Hugging Face","Bart-Large-CNN","CNN-DailyMail Dataset"],
+    githubLink: "https://github.com/MariamAzzouz/-Text_Summarization",
+    //liveLink: ""
+  },
   // Add more projects here
 ];
 

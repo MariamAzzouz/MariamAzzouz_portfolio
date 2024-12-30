@@ -60,52 +60,49 @@ function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             > 
+              <button
+                className="bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 px-6 rounded-full transition-colors duration-200"
+                onClick={() => window.location.href = '/projects'}
+              >
+                View Projects
+              </button>
               
-              <Link to="/projects">
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={() => console.log('View Projects button clicked')}
-                >
-                  View Projects
-                </Button>
-              </Link>
-              
-              <Button
-                variant="outline"
-                size="md"
-                onClick={() => {
-                  console.log("Button clicked");
-                  console.log("Attempting to download from:", `${apiUrl}/download_cv`);
+              <button
+                className="border-2 border-lime-400 text-lime-400 hover:bg-lime-400 hover:text-black font-semibold py-2 px-6 rounded-full transition-colors duration-200"
+                onClick={async () => {
+                  const button = document.activeElement;
+                  button.disabled = true;
+                  button.textContent = 'Downloading...';
+                  
                   try {
-                    fetch(`${apiUrl}/download_cv`)
-                      .then(response => {
-                        console.log("Response:", response);
-                        if (!response.ok) {
-                          throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        return response.blob();
-                      })
-                      .then(blob => {
-                        const url = window.URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = "Mariem_AZZOUZ_CV.pdf";
-                        document.body.appendChild(a);
-                        a.click();
-                        a.remove();
-                      })
-                      .catch(error => {
-                        console.error("Download error:", error);
-                      });
+                    const response = await fetch(`${apiUrl}/download_cv`, {
+                      method: 'GET',
+                    });
+
+                    if (!response.ok) {
+                      throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = "Mariem_AZZOUZ_CV.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
                   } catch (error) {
-                    console.error("Fetch error:", error);
+                    console.error("Download error:", error);
+                    alert("Failed to download CV. Please try again later.");
+                  } finally {
+                    button.disabled = false;
+                    button.textContent = 'Download CV';
                   }
                 }}
               >
                 Download CV
-              </Button>
-
+              </button>
             </motion.div>
           </motion.div>
 
